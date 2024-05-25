@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURD School Student Information</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid" mt-5>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <a href="/add_student" name="add_student" class="btn btn-primary mt-5" >Add Student</a>
+                <% if (messages.error) { %>
+                    <% messages.error.forEach(function(message) { %>
+                        <div class="alert alert-danger"><%= message %></div>
+                    <% }); %>
+                <% } %>
+                
+                <% if (messages.success) { %>
+                    <% messages.success.forEach(function(message) { %>
+                        <div class="alert alert-success"><%= message %></div>
+                    <% }); %>
+                <% } %>
+                <h3 class="text-success text-center  mt-3">Student Registration table List</h3>
+                 <table class="table  table-striped mt-3">
+                    <thead>
+                        <tr class="text-center table-dark">
+                            <th>Student Roll Number</th>
+                            <th>Student Name</th>
+                            <th>Student School Name</th>
+                            <th>Student Class</th>
+                            <th>Student Parents Number</th>
+                            <th>Student Home Address</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(student) { %>
+                            <% student.forEach((items)=>{ %>
+                            <tr class="text-center">
+                                <td><%= items.student_roll_number  %></td>
+                                <td><%= items.student_name  %></td>
+                                <td><%= items.student_school %></td>
+                                <td><%= items.student_class %></td>
+                                <td><%= items.student_parents_number  %></td>
+                                <td><%= items.student_address %></td>
+                                <td><a href="/items_edit/<%= items.student_roll_number %>" class="btn btn-success" >Edit</a></td>
+                                <td><a href="/items_delete/<%= items.student_roll_number %>" class="btn btn-danger" >Delete</a></td>
+                            </tr>
+                            <% })%>
+                        <%}else{%>
+                            <tr>
+                                <td colspan="8">Data Not Found</td>
+                            </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        
+       
+    </div>
+</body>
+</html>

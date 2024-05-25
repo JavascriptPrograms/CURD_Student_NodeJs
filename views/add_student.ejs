@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="./css/add_student.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+              <a href="/" name="student" class="btn btn-primary mt-5" >Student Table</a>
+              <% if (messages.error) { %>
+                <% messages.error.forEach(function(message) { %>
+                    <div class="alert alert-danger"><%= message %></div>
+                <% }); %>
+            <% } %>
+            
+            <% if (messages.success) { %>
+                <% messages.success.forEach(function(message) { %>
+                    <div class="alert alert-success"><%= message %></div>
+                <% }); %>
+            <% } %>
+                <form method="post" action="/submit_student">
+                    <h3 class="text-danger text-center mt-3">Add Student</h3>
+                    <div class="mb-3 mt-3">
+                        <label for="student_roll_number" class="form-label">Student Roll Number</label>
+                        <input type="number" class="form-control" name="student_roll_number" id="student_roll_number" placeholder="student Roll Number" required >
+                      </div>
+                      <div class="mb-3">
+                        <label for="student_name" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" name="student_name" id="student_name" placeholder="student Name" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="student_scholl_name" class="form-label">Student School Name</label>
+                        <input type="text" class="form-control" name="student_school_name" id="student_scholl_name" placeholder="student School Name" required >
+                      </div>
+                      <div class="mb-3">
+                        <label for="student_class" class="form-label">Student class</label>
+                        <input type="text" class="form-control" name="student_class" id="student_class" placeholder="student class" required >
+                      </div>
+                      <div class="mb-3">
+                        <label for="student_parents_number" class="form-label">Student Parents Number</label>
+                        <input type="number" class="form-control" name="student_parents_number" id="student_parents_number" placeholder="student_parents_number" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="student_home_address" class="form-label">Student Home Address</label>
+                        <input type="text" class="form-control" name="student_home_address" id="student_home_address" placeholder="student Home Address" required>
+                      </div>
+                      <div class="col-auto mt-3 mb-5">
+                        <button type="submit" class="btn btn-primary mb-3" style="width:100%;">Add Student</button>
+                      </div>
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+</body>
+</html>
